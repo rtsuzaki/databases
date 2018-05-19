@@ -1,9 +1,14 @@
 CREATE DATABASE chat;
 
+
 USE chat;
 
 CREATE TABLE users (
-  /* Describe your table here.*/
+  /* Describe your table here.
+  
+  mysql -u student -p <schema.sql
+  
+  */
   userid int NOT NULL AUTO_INCREMENT,
   username varchar(20),
   PRIMARY KEY (userid)

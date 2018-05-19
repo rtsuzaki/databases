@@ -5,11 +5,11 @@ var mysql = require('mysql');
 // and to the database "chat".
 
 var con = mysql.createConnection({
-  host:'localhost',
-  user:'student',
-  password:'student',
+  host: 'localhost',
+  user: 'student',
+  password: 'student',
   database: 'chat'
-})
+});
 
 // con.connect(function(err) {
 //   if (err) throw error;
