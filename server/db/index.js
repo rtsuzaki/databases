@@ -10,13 +10,14 @@ var con = mysql.createConnection({
   host: 'localhost',
   user: 'student',
   password: 'student',
-  database: 'chat'
+  database: 'chat',
+  multipleStatements: true
 });
 
-// con.connect(function(err) {
-//   if (err) throw error;
-//   console.log('connected!')
-// })
+con.connect(function(err) {
+  if (err) throw error;
+  console.log('connected!')
+})
 
 // module.exports = {
 //   // con: con,

@@ -17,7 +17,7 @@ module.exports = {
       
       console.log(req.body);
       models.messages.post(req.body)
-        .then((data) => res.status(200).send(data))
+        .then((data) => res.status(201).send(data))
         .catch((err) => console.log(err));
       
       
@@ -40,7 +40,7 @@ module.exports = {
       // console.log('user post:', req);
       console.log('----------controller users post fn')
       models.users.post(req.body.username)
-        .then((data) => res.status(200).send(data))
+        .then((data) => res.status(201).send(data))
         .catch((err) => console.log(err));
     }
   }
