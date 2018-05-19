@@ -19,6 +19,9 @@ app.set('port', 3000);
 app.use(morgan('dev'));
 app.use(parser.json());
 
+// Connecting out database
+db.con.connect();
+
 // Set up our routes
 app.use('/classes', router);
 

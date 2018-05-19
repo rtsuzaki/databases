@@ -11,7 +11,8 @@ CREATE TABLE users (
   */
   userid int NOT NULL AUTO_INCREMENT,
   username varchar(20),
-  PRIMARY KEY (userid)
+  PRIMARY KEY (userid),
+  UNIQUE(username)
 );
 
 /* Create other tables and define schemas for them here! */
@@ -19,7 +20,9 @@ CREATE TABLE rooms (
   /* Describe your table here.*/
   roomid int NOT NULL AUTO_INCREMENT,
   roomname varchar(20),
-  PRIMARY KEY (roomid)
+  PRIMARY KEY (roomid),
+  UNIQUE(roomname)
+  
 );
 
 CREATE TABLE messages (

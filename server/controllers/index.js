@@ -13,11 +13,12 @@ module.exports = {
       //if user exist, then assign it userID
       //if user doesn't exist, then add it to user table and assign the new user Id in message table
       // console.log('messages post:', req)
-      // console.log('-----post controller messages')
+      console.log('-----post controller messages')
       
       console.log(req.body);
-      models.messages.post(req.body.username)
-        .then((data) => res.status(200).send(data));
+      models.messages.post(req.body)
+        .then((data) => res.status(200).send(data))
+        .catch((err) => console.log(err));
       
       
     } // a function which handles posting a message to the database
@@ -37,9 +38,10 @@ module.exports = {
       //else,
       //add user to user table
       // console.log('user post:', req);
-      // console.log('----------controller post fn')
+      console.log('----------controller users post fn')
       models.users.post(req.body.username)
-        .then((data) => res.status(200).send(data));
+        .then((data) => res.status(200).send(data))
+        .catch((err) => console.log(err));
     }
   }
 };

@@ -4,6 +4,7 @@
 var mysql = require('mysql');
 var request = require('request'); // You might need to npm install the request module!
 var expect = require('chai').expect;
+var db = require('../db/index');
 
 describe('Persistent Node Chat Server', function() {
   var dbConnection;
@@ -20,7 +21,29 @@ describe('Persistent Node Chat Server', function() {
 
     /* Empty the db table before each test so that multiple tests
      * (or repeated runs of the tests) won't screw each other up: */
-    // dbConnection.query('truncate ' + tablename, done);
+    dbConnection.query('truncate ' + tablename, done);
+  
+
+
+  //   sequelize.transaction(function(t) {
+  // var options = { raw: true, transaction: t }
+
+  // sequelize
+  //   db.con.query('SET FOREIGN_KEY_CHECKS = 0', null, options)
+  //     .then(function() {
+  //       dbConnection.query('truncate ' + tablename2, done);
+  //       dbConnection.query('truncate ' + tablename1, done);
+  //       dbConnection.query('truncate ' + tablename3, done);
+  //     })
+  //     .then(function() {
+  //       return sequelize.query('SET FOREIGN_KEY_CHECKS = 1', null, options)
+  //     })
+  //     .then(function() {
+  //       return t.commit()
+  //     })
+  //   }).success(function() {
+  //     // go on here ...
+  //   })
   });
 
   afterEach(function() {
@@ -32,14 +55,14 @@ describe('Persistent Node Chat Server', function() {
     request({
       method: 'POST',
       uri: 'http://127.0.0.1:3000/classes/users',
-      json: { username: 'Valjean' }
+      json: { username: 'Ryan' }
     }, function () {
       // Post a message to the node chat server:
       request({
         method: 'POST',
         uri: 'http://127.0.0.1:3000/classes/messages',
         json: {
-          username: 'Valjean',
+          username: 'Eric',
           message: 'In mercy\'s name, three days is all I need.',
           roomname: 'Hello'
         }
